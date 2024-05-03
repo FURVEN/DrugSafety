@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="_00_의약품안전나라_Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="817.6,2257.6" sap2010:WorkflowViewState.IdRef="_00_의약품안전나라_Main_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="_00_의약품안전나라_Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="501.6,2305.6" sap2010:WorkflowViewState.IdRef="_00_의약품안전나라_Main_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -89,7 +89,7 @@
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="&lt;의약품 안전나라&gt;&#xA;• 수신한 메일에서 처리 항목 가져오기&#xA;• 의약품 안전나라 – 고시/공고/알림 – 행정처분정보 접속&#xA;• 품목구분 및 조회기간 설정 (의약품 등, 메일에 주어진 기간) &#xA;• 템플릿 파일의 양식에 맞게 추출한 ‘전체DT’를 당월시트에 입력&#xA;• ‘전체DT’ 중 키워드가 포함된 내용만 추출하여 이슈사항시트에 입력&#xA;• 이슈사항시트의 내용 중 처분일자가 당월인 것만 필터링하여 당월이슈시트에 입력&#xA;• 결과파일을 첨부하여 양식대로 메일 발송&#xA;https://nedrug.mfds.go.kr/index" DisplayName="_00_의약품안전나라_Main" sap:VirtualizedContainerService.HintSize="512,2192.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="&lt;의약품 안전나라&gt;&#xA;• 수신한 메일에서 처리 항목 가져오기&#xA;• 의약품 안전나라 – 고시/공고/알림 – 행정처분정보 접속&#xA;• 품목구분 및 조회기간 설정 (의약품 등, 메일에 주어진 기간) &#xA;• 템플릿 파일의 양식에 맞게 추출한 ‘전체DT’를 당월시트에 입력&#xA;• ‘전체DT’ 중 키워드가 포함된 내용만 추출하여 이슈사항시트에 입력&#xA;• 이슈사항시트의 내용 중 처분일자가 당월인 것만 필터링하여 당월이슈시트에 입력&#xA;• 결과파일을 첨부하여 양식대로 메일 발송&#xA;https://nedrug.mfds.go.kr/index&#xA;&#xA;&#xA;예외처리, 오류카운트처리했으니 RE프레임 Main.xaml으로 구동시킬 것." DisplayName="_00_의약품안전나라_Main" sap:VirtualizedContainerService.HintSize="512,2240.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="dicConfig" />
       <Variable x:TypeArguments="x:String" Name="strEmail" />
@@ -125,10 +125,10 @@
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Jobs\01_의약품안전나라_메일수신.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="449.6,153.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Jobs\02_의약품안전나라_메일수신.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_strEmail">[strEmail]</OutArgument>
-        <OutArgument x:TypeArguments="ss:SecureString" x:Key="out_sstrPW">[sstrPW]</OutArgument>
         <OutArgument x:TypeArguments="x:String" x:Key="out_str검색어">[str검색어]</OutArgument>
         <OutArgument x:TypeArguments="x:String" x:Key="out_str검색기간">[str검색기간]</OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strEmail">[strEmail]</InArgument>
+        <InArgument x:TypeArguments="ss:SecureString" x:Key="in_sstrPW">[sstrPW]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Jobs\의약품안전나라_검색필터링.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="449.6,153.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Jobs\03_의약품안전나라_검색필터링.xaml">

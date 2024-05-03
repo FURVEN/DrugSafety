@@ -6,7 +6,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>817.6,756.8</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>755.2,902.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>_02_CreateHTML_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -120,7 +120,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign sap2010:Annotation.AnnotationText="* Import &quot;UiPath.DataTableUtilies&quot;" sap:VirtualizedContainerService.HintSize="433.6,152.8" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign sap2010:Annotation.AnnotationText="* Import &quot;UiPath.DataTableUtilies&quot;" DisplayName="DT-&gt;HTML | Assign" sap:VirtualizedContainerService.HintSize="433.6,152.8" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[strHTML]</OutArgument>
       </Assign.To>
@@ -133,7 +133,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="433.6,123.2" sap2010:WorkflowViewState.IdRef="Assign_2">
+    <Assign DisplayName="인라인스타일적용 | Assign" sap:VirtualizedContainerService.HintSize="433.6,123.2" sap2010:WorkflowViewState.IdRef="Assign_2">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[strHTML]</OutArgument>
       </Assign.To>
@@ -145,14 +145,14 @@
 )]</InArgument>
       </Assign.Value>
     </Assign>
-    <WriteLine sap2010:Annotation.AnnotationText="&lt;table class='table' style='width: 100%; border-collapse: collapse;' border='1'&gt;&quot; +&#xD;&#xA;    &quot;&lt;tr style='background-color: #4CAF50; color: white; font-family: sans-serif; font-weight: bold;'&gt;" DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="433.6,206.4" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[strHTML]">
+    <WriteLine sap2010:Annotation.AnnotationText="&lt;table class='table' style='width: 100%; border-collapse: collapse;' border='1'&gt;&quot; +&#xA;    &quot;&lt;tr style='background-color: #4CAF50; color: white; font-family: sans-serif; font-weight: bold;'&gt;" DisplayName="확인용 | Write Line" sap:VirtualizedContainerService.HintSize="433.6,206.4" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[strHTML]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </WriteLine>
-    <Assign sap:VirtualizedContainerService.HintSize="433.6,121.6" sap2010:WorkflowViewState.IdRef="Assign_3">
+    <Assign DisplayName="메일용 편집 | Assign" sap:VirtualizedContainerService.HintSize="433.6,121.6" sap2010:WorkflowViewState.IdRef="Assign_3">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[out_strHTML]</OutArgument>
       </Assign.To>
@@ -160,7 +160,7 @@
         <InArgument x:TypeArguments="x:String">[strHTML.Replace("&lt;html&gt;&lt;body&gt;","").Replace("&lt;/body&gt;&lt;/html&gt;","")]</InArgument>
       </Assign.Value>
     </Assign>
-    <WriteLine sap2010:Annotation.AnnotationText="HTML 확인" DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="433.6,144.8" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[out_strHTML]">
+    <WriteLine sap2010:Annotation.AnnotationText="HTML 확인" DisplayName="확인 | Write Line" sap:VirtualizedContainerService.HintSize="433.6,144.8" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[out_strHTML]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>

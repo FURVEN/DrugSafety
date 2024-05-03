@@ -12,7 +12,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>817.6,1156</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>817.6,1140</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>의약품안전나라_이메일전송_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -111,14 +111,14 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="의약품안전나라_이메일전송" sap:VirtualizedContainerService.HintSize="513.6,1091.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="의약품안전나라_이메일전송" sap:VirtualizedContainerService.HintSize="513.6,1075.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="451.2,182.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;의약품 이메일전송 시작...&quot;]" />
-    <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" MailMessage="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" Result="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" sap2010:Annotation.AnnotationText="카운터, 에러 사항 따로 본인 확인" Body="[String.Format(in_dicConfig(&quot;Mail_Contents&quot;).ToString, in_intTotalCount.ToString, in_intSuccessCount.ToString, in_intFailCount.ToString, String.Join(&quot;, &quot;, in_listFail))]" DisplayName="이메일전송 | Send SMTP Mail Message" Email="[in_strEmail]" EnableSSL="True" From="[in_strEmail]" sap:VirtualizedContainerService.HintSize="451.2,220" sap2010:WorkflowViewState.IdRef="SendMail_2" IgnoreCRL="False" IsBodyHtml="True" Name="원성현" Port="587" SecureConnection="Auto" SecurePassword="[in_sstrPW]" Server="smtp.gmail.com" Subject="[String.Format(in_dicConfig(&quot;Mail_Title&quot;).ToString, Now.ToString(&quot;yyyy/MM&quot;), in_dicConfig(&quot;Mail_Writer&quot;).ToString)]" To="[in_strEmail]">
+    <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" MailMessage="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" Result="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" sap2010:Annotation.AnnotationText="본인확인용 에러 카운터, 목록 전송" Body="[String.Format(in_dicConfig(&quot;Mail_Contents&quot;).ToString, in_intTotalCount.ToString, in_intSuccessCount.ToString, in_intFailCount.ToString, String.Join(&quot;, &quot;, in_listFail))]" DisplayName="이메일전송 | Send SMTP Mail Message" Email="[in_strEmail]" EnableSSL="True" From="[in_strEmail]" sap:VirtualizedContainerService.HintSize="451.2,220" sap2010:WorkflowViewState.IdRef="SendMail_2" IgnoreCRL="False" IsBodyHtml="True" Name="원성현" Port="587" SecureConnection="Auto" SecurePassword="[in_sstrPW]" Server="smtp.gmail.com" Subject="[String.Format(in_dicConfig(&quot;Mail_Title&quot;).ToString, Now.ToString(&quot;yyyy/MM&quot;), in_dicConfig(&quot;Mail_Writer&quot;).ToString)]" To="[in_strEmail]">
       <ui:SendMail.Files>
         <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
           <InArgument x:TypeArguments="x:String">[String.Format(in_dicConfig("Folder_Output").ToString, Now.ToString("{yyMM}"))]</InArgument>
@@ -130,15 +130,15 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:SendMail>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="451.2,434.4" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="451.2,418.4" sap2010:WorkflowViewState.IdRef="CommentOut_1">
       <ui:CommentOut.Body>
-        <Sequence DisplayName="무시된 액티비티" sap:VirtualizedContainerService.HintSize="416,316" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence DisplayName="무시된 액티비티" sap:VirtualizedContainerService.HintSize="416,300" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" MailMessage="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" Result="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" sap2010:Annotation.AnnotationText="VBA코드나 xaml로 따로 양식 만들어두기.&#xA;Gmail은 CSS시트 적용 안됌.&#xA;이너스타일로 바꿔야 됌." Body="[String.Format(in_dicConfig(&quot;Mail_Contents2&quot;).ToString, Now.ToString(&quot;yyyy/MM&quot;), in_HTML당월이슈)]" DisplayName="이메일전송 | Send SMTP Mail Message" Email="[in_strEmail]" EnableSSL="True" From="[in_strEmail]" sap:VirtualizedContainerService.HintSize="353.6,229.6" sap2010:WorkflowViewState.IdRef="SendMail_1" IgnoreCRL="False" IsBodyHtml="True" Name="원성현" Port="587" SecureConnection="Auto" SecurePassword="[in_sstrPW]" Server="smtp.gmail.com" Subject="[String.Format(in_dicConfig(&quot;Mail_Title&quot;).ToString, Now.ToString(&quot;yyyy/MM&quot;), in_dicConfig(&quot;Mail_Writer&quot;).ToString)]" To="[in_dicConfig(&quot;Mail_Receiver&quot;).ToString]">
+          <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" MailMessage="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" Result="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" sap2010:Annotation.AnnotationText="인라인 스타일 HTML 데이터테이블,&#xD;&#xA;엑셀 파일 전송" Body="[String.Format(in_dicConfig(&quot;Mail_Contents2&quot;).ToString, Now.ToString(&quot;yyyy/MM&quot;), in_HTML당월이슈)]" DisplayName="이메일전송 | Send SMTP Mail Message" Email="[in_strEmail]" EnableSSL="True" From="[in_strEmail]" sap:VirtualizedContainerService.HintSize="353.6,213.6" sap2010:WorkflowViewState.IdRef="SendMail_1" IgnoreCRL="False" IsBodyHtml="True" Name="원성현" Port="587" SecureConnection="Auto" SecurePassword="[in_sstrPW]" Server="smtp.gmail.com" Subject="[String.Format(in_dicConfig(&quot;Mail_Title&quot;).ToString, Now.ToString(&quot;yyyy/MM&quot;), in_dicConfig(&quot;Mail_Writer&quot;).ToString)]" To="[in_dicConfig(&quot;Mail_Receiver&quot;).ToString]">
             <ui:SendMail.Files>
               <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
                 <InArgument x:TypeArguments="x:String">[String.Format(in_dicConfig("Folder_Output").ToString, Now.ToString("{yyMM}"))]</InArgument>

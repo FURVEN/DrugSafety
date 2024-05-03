@@ -115,7 +115,7 @@
       <AssemblyReference>System.Linq.Queryable</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="의약품안전나라_DT필터" sap:VirtualizedContainerService.HintSize="512,1817.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="의약품안전나라_DT필터" sap:VirtualizedContainerService.HintSize="512,1857.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dt필터링합본" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt필터링" />
@@ -127,7 +127,7 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="449.6,182.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;의약품 DT필터 시작...&quot;]" />
-    <ui:FilterDataTable DataTable="[in_transactionData]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="449.6,202.4" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[out_dtURL제거]" SelectColumnsMode="Remove">
+    <ui:FilterDataTable DataTable="[in_transactionData]" DisplayName="URL열제거 | Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="449.6,202.4" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[out_dtURL제거]" SelectColumnsMode="Remove">
       <ui:FilterDataTable.Filters>
         <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
           <ui:FilterOperationArgument Column="{x:Null}" Operand="{x:Null}" BooleanOperator="And" Operator="LT" />
@@ -139,7 +139,7 @@
         </scg:List>
       </ui:FilterDataTable.SelectColumns>
     </ui:FilterDataTable>
-    <Assign sap:VirtualizedContainerService.HintSize="449.6,121.6" sap2010:WorkflowViewState.IdRef="Assign_2">
+    <Assign DisplayName="저장용클론 | Assign" sap:VirtualizedContainerService.HintSize="449.6,121.6" sap2010:WorkflowViewState.IdRef="Assign_2">
       <Assign.To>
         <OutArgument x:TypeArguments="sd:DataTable">[dt필터링합본]</OutArgument>
       </Assign.To>
@@ -159,7 +159,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:FilterDataTable DataTable="[out_dtURL제거]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="353.6,202.4" sap2010:WorkflowViewState.IdRef="FilterDataTable_4" OutputDataTable="[dt필터링]" SelectColumnsMode="Remove">
+            <ui:FilterDataTable DataTable="[out_dtURL제거]" DisplayName="위반내역필터 | Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="353.6,202.4" sap2010:WorkflowViewState.IdRef="FilterDataTable_4" OutputDataTable="[dt필터링]" SelectColumnsMode="Remove">
               <ui:FilterDataTable.Filters>
                 <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
                   <ui:FilterOperationArgument BooleanOperator="And" Operator="CONTAINS">
@@ -178,12 +178,12 @@
                 </scg:List>
               </ui:FilterDataTable.SelectColumns>
             </ui:FilterDataTable>
-            <ui:MergeDataTable Destination="[dt필터링합본]" DisplayName="Merge Data Table" sap:VirtualizedContainerService.HintSize="353.6,157.6" sap2010:WorkflowViewState.IdRef="MergeDataTable_1" MissingSchemaAction="Add" Source="[dt필터링]" />
+            <ui:MergeDataTable Destination="[dt필터링합본]" DisplayName="DT병합 | Merge Data Table" sap:VirtualizedContainerService.HintSize="353.6,157.6" sap2010:WorkflowViewState.IdRef="MergeDataTable_1" MissingSchemaAction="Add" Source="[dt필터링]" />
           </Sequence>
         </ActivityAction>
       </ui:ForEach.Body>
     </ui:ForEach>
-    <Assign sap:VirtualizedContainerService.HintSize="449.6,121.6" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign DisplayName="DT중복제거 | Assign" sap:VirtualizedContainerService.HintSize="449.6,121.6" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="sd:DataTable">[dt합본중복제거]</OutArgument>
       </Assign.To>
@@ -191,8 +191,8 @@
         <InArgument x:TypeArguments="sd:DataTable">[dt필터링합본.DefaultView.ToTable(True)]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:SortDataTable ColumnIndex="{x:Null}" DataColumn="{x:Null}" ColumnName="처분일자" DataTable="[dt합본중복제거]" DisplayName="Sort Data Table" sap:VirtualizedContainerService.HintSize="334.4,80.8" sap2010:WorkflowViewState.IdRef="SortDataTable_1" Order="Decending" OutputDataTable="[out_dt이슈사항]" SortOrder="Descending" />
-    <ui:FilterDataTable DataTable="[out_dt이슈사항]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="449.6,202.4" sap2010:WorkflowViewState.IdRef="FilterDataTable_3" OutputDataTable="[out_dt당월이슈]" SelectColumnsMode="Remove">
+    <ui:SortDataTable ColumnIndex="{x:Null}" DataColumn="{x:Null}" ColumnName="처분일자" DataTable="[dt합본중복제거]" DisplayName="처분일자기준정렬 | Sort Data Table" sap:VirtualizedContainerService.HintSize="449.6,120.8" sap2010:WorkflowViewState.IdRef="SortDataTable_1" Order="Decending" OutputDataTable="[out_dt이슈사항]" SortOrder="Descending" />
+    <ui:FilterDataTable DataTable="[out_dt이슈사항]" DisplayName="해당월필터링 | Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="449.6,202.4" sap2010:WorkflowViewState.IdRef="FilterDataTable_3" OutputDataTable="[out_dt당월이슈]" SelectColumnsMode="Remove">
       <ui:FilterDataTable.Filters>
         <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
           <ui:FilterOperationArgument BooleanOperator="And" Operator="CONTAINS">
